@@ -159,7 +159,7 @@ class TransitionUp(nn.Module):
                 x,
                 size=(skip.size(2), skip.size(3)),
                 mode="bilinear",
-                align_corners=True,
+                align_corners=False,
                             )
         if concat:                            
           out = torch.cat([out, skip], 1)
@@ -307,7 +307,7 @@ class hardnet(nn.Module):
                             out,
                             size=(size_in[2], size_in[3]),
                             mode="bilinear",
-                            align_corners=True)
+                            align_corners=False)
         
         out_dict["seg"] = out
         return out_dict
